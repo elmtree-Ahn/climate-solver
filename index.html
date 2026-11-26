@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>기후 위기 해결사 | 어게인 실험과학 수학학원</title>
+<meta name="description" content="탄소 순환, 기후위기 해결사 카드 잇기, 탄소 중립 욕조, OX 퀴즈로 기후 위기의 원인과 해결을 복습해요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#e8f4fd; --sky2:#bfe0f8; --blue:#3a9ae0; --blue-d:#2476b8; --line:#d3e7f5;
+  --warm:#ff8a3d; --warm-d:#e0661c; --warm-s:#fff0e3;
+  --navy:#24407e; --navy-d:#172c5c; --navy-s:#e7ecf8;
+  --ruby:#d81e4a; --ruby-d:#a3102f; --ink:#33414f; --sub:#6c7a8a;
+  --good:#1f8a57; --good-s:#e3f6ec; --bad:#c8283a; --bad-s:#ffe9ec;
+  --cause:#ef7d1a; --cause-d:#c25e08; --cause-s:#fff1e2;
+  --phen:#2f8fd8; --phen-d:#1d6aa8; --phen-s:#e3f1fc;
+  --sol:#2a9d5c; --sol-d:#1c7543; --sol-s:#e3f6ec;
+  --brown:#8a5a2b;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{margin:0;color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;font-weight:500;background:#fff}
+body{min-height:100vh;display:flex;flex-direction:column;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-action:manipulation}
+.jua,header,nav,.bbtn,.say,.card h2,.quiz,footer,.toast,.kcard,.slot,.ghead,.chip,.stat,.rng,.cnt,svg text{font-family:"Jua","Noto Sans KR",sans-serif}
+
+.bbtn{font-size:22px;min-height:60px;min-width:140px;padding:8px 26px;color:#fff;background:var(--navy);border-radius:999px;
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 5px 0 var(--navy-d);word-break:keep-all;line-height:1.2}
+.bbtn:active{transform:translateY(3px)}
+.bbtn.white{background:#fff;color:var(--navy);box-shadow:inset 0 -6px 0 rgba(0,0,0,.05),0 5px 0 var(--line);border:3px solid var(--sky2)}
+
+header{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 3px 0 var(--line);padding:8px 16px}
+.head-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.titles{flex:1;min-width:0}
+.brand{font-size:16px;color:var(--sub)}
+h1{margin:0;font-weight:400;font-size:clamp(19px,3.1vw,30px);color:var(--navy);line-height:1.18;word-break:keep-all}
+.share{min-width:0;font-size:18px;min-height:50px;padding:6px 20px;flex:none;display:flex;align-items:center;gap:6px}
+.share svg{width:20px;height:20px;flex:none}
+
+nav{max-width:1100px;width:100%;margin:10px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{min-height:54px;border-radius:18px;background:var(--sky);font-size:clamp(17px,2vw,22px);line-height:1.15;padding:4px;
+  border:3px solid transparent;word-break:keep-all;text-align:center;color:var(--navy)}
+.tab.on{background:var(--warm-s);border-color:var(--warm);color:var(--warm-d)}
+
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:10px 16px 16px}
+.panel{display:none}
+.panel.on{display:block}
+.card{background:var(--sky);border-radius:24px;padding:14px;margin-bottom:14px}
+.card h2{margin:2px 0 10px;font-weight:400;text-align:center;color:var(--navy);font-size:clamp(22px,2.8vw,30px);line-height:1.25;word-break:keep-all}
+.white-box{background:#fff;border-radius:18px;box-shadow:0 0 0 3px var(--line);padding:10px}
+.say{min-height:2.9em;margin:12px 4px 10px;text-align:center;font-size:clamp(19px,2.3vw,25px);line-height:1.45;word-break:keep-all}
+.say b{font-weight:400;color:var(--warm-d)}
+.say.good b,.say.good{color:var(--good)}
+.note{margin:0;background:#fff;border-radius:16px;padding:10px 14px;font-size:clamp(15px,1.8vw,18px);line-height:1.6;color:var(--ink);word-break:keep-all}
+.note b{color:var(--navy)}
+.note p{margin:0}
+.note p+p{margin-top:4px}
+.row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.cnt{text-align:center;font-size:clamp(18px,2.3vw,23px);color:var(--sub);margin:0 0 8px}
+.cnt b{font-weight:400;color:var(--good);font-size:1.25em}
+
+/* ① 탄소 순환 */
+#cyc{display:block;width:100%;max-width:560px;margin:0 auto;height:auto;touch-action:manipulation}
+.node{cursor:pointer;outline:none}
+.node circle{stroke-width:4;transition:stroke-width .2s}
+.node .emo{font-family:system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:30px}
+.node .nm{font-size:16px;fill:var(--navy)}
+.node .sub{font-size:14px;fill:var(--brown)}
+.node.on circle{stroke:var(--warm)!important;stroke-width:7}
+.node .chk{font-size:16px;fill:var(--good);opacity:0}
+.node.seen .chk{opacity:1}
+.fl path{fill:none;stroke:#cfdbe6;stroke-width:3;stroke-dasharray:6 6;stroke-linecap:round}
+.fl text{font-size:14px;fill:#b3c0cc;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+.fl .dot{display:none}
+.fl.on path{stroke:var(--c);stroke-width:5;stroke-dasharray:10 6;animation:flow .7s linear infinite}
+.fl.on text{fill:var(--c);font-size:15px}
+.fl.on .dot{display:inline}
+@keyframes flow{from{stroke-dashoffset:32}to{stroke-dashoffset:0}}
+.lines{display:grid;gap:8px;margin:12px 0}
+.ln{background:#fff;border-radius:16px;padding:10px 12px;font-size:clamp(17px,2vw,20px);line-height:1.5;word-break:keep-all;box-shadow:0 0 0 3px var(--line)}
+.chip{display:inline-block;margin-right:6px;padding:1px 11px;border-radius:999px;color:#fff;font-size:.92em;white-space:nowrap}
+.btn-all{font-size:19px;min-height:52px;padding:4px 22px}
+.hanja{margin:12px 0 0;text-align:center;font-family:"Jua",sans-serif;font-size:clamp(20px,2.6vw,26px);color:var(--good);line-height:1.4;word-break:keep-all}
+.hanja big{display:inline-block;font-size:1.6em;vertical-align:-.1em;margin-right:6px;color:var(--navy)}
+
+/* ② 카드 잇기 */
+.ghead{margin:14px 2px 8px;font-size:clamp(19px,2.3vw,23px);color:var(--navy);word-break:keep-all}
+.ghead:first-of-type{margin-top:4px}
+.ghead small{font-size:.8em;color:var(--sub)}
+.kcards{display:grid;gap:8px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kcards.k4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kcard{position:relative;min-height:62px;border-radius:16px;padding:8px 6px;font-size:clamp(18px,2.2vw,22px);line-height:1.2;word-break:keep-all;
+  background:#fff;border:3px solid var(--k);color:var(--kd);box-shadow:0 5px 0 var(--kd)}
+.kcard:active{transform:translateY(3px)}
+.kcard.on{background:var(--k);color:#fff}
+.kcard.off{opacity:.45}
+.kcard.no{background:#f1f3f6;border-color:#c5ccd5;color:#8a96a3;box-shadow:0 5px 0 #dde2e8}
+.kcard .mk{position:absolute;top:2px;right:7px;font-size:15px}
+.kcard.done .mk::after{content:"✓"}
+.ph{--k:var(--phen);--kd:var(--phen-d)}
+.ca{--k:var(--cause);--kd:var(--cause-d)}
+.so{--k:var(--sol);--kd:var(--sol-d)}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+.fbk{margin:10px 0 0;padding:10px 12px;border-radius:16px;font-size:clamp(17px,2vw,20px);line-height:1.5;word-break:keep-all;background:#fff;box-shadow:0 0 0 3px var(--line)}
+.fbk:empty{display:none}
+.fbk.ok{box-shadow:0 0 0 3px #a9dcc1}
+.fbk.ok b{color:var(--good);font-weight:700}
+.fbk.no{background:var(--bad-s);box-shadow:0 0 0 3px #f5b8c0}
+.fbk.no b{color:var(--bad);font-weight:700}
+.board{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:4px;align-items:stretch;margin-top:6px}
+.slot{border-radius:16px;border:3px dashed var(--k);background:#fff;min-height:74px;padding:6px 4px;text-align:center;display:flex;flex-direction:column;justify-content:center;
+  color:var(--kd);word-break:keep-all;line-height:1.2}
+.slot small{font-size:14px;opacity:.85}
+.slot b{font-weight:400;font-size:clamp(17px,2.2vw,22px)}
+.slot.full{border-style:solid;background:var(--k);color:#fff}
+.arr{align-self:center;font-family:system-ui,sans-serif;font-weight:800;font-size:20px;color:var(--sub)}
+
+/* ③ 탄소 중립 욕조 */
+#tub{display:block;width:100%;max-width:520px;margin:0 auto;height:auto}
+.stat{margin:2px 0 6px;text-align:center;font-size:clamp(24px,3.2vw,32px);line-height:1.3;color:var(--warm-d)}
+.stat.zero{color:var(--good)}
+.stat.down{color:var(--blue-d)}
+.stat span{display:inline-block;padding:2px 18px;border-radius:999px}
+.stat.zero span{background:var(--good-s);box-shadow:0 0 0 3px var(--good)}
+.stream{stroke-dasharray:14 7;animation:flow .5s linear infinite}
+.rngs{display:grid;gap:10px;margin-top:12px}
+.rng{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:8px 12px;box-shadow:0 0 0 3px var(--line);font-size:clamp(19px,2.3vw,23px);line-height:1.2}
+.rng .nm{color:var(--c)}
+.rng .nm small{display:block;font-size:.72em;color:var(--sub)}
+.rng .hint{grid-column:1/-1;font-family:"Noto Sans KR",sans-serif;font-size:15px;color:var(--sub);word-break:keep-all;margin-top:-4px}
+.rng input{width:100%;height:44px;accent-color:var(--c);margin:0}
+.rng b{font-weight:400;color:var(--c);font-size:1.3em;min-width:1.6em;text-align:center}
+
+/* ④ OX */
+.quiz{max-width:880px;margin:0 auto;text-align:center}
+.score{font-size:24px;color:var(--sub)}
+.score b{font-weight:400;color:var(--warm-d);font-size:1.3em}
+.q{background:var(--sky);border-radius:28px;padding:24px 20px;margin:10px 0;font-size:clamp(24px,3.4vw,34px);line-height:1.38;word-break:keep-all;min-height:130px;display:grid;place-items:center}
+.ox{display:flex;gap:20px;justify-content:center}
+.ox button{width:min(42%,220px);aspect-ratio:1.45;border-radius:32px;font-size:clamp(70px,12vw,100px);line-height:1;color:#fff;font-family:system-ui,sans-serif;font-weight:800}
+.ox .o{background:var(--blue);box-shadow:0 8px 0 var(--blue-d)}
+.ox .x{background:var(--ruby);box-shadow:0 8px 0 var(--ruby-d)}
+.ox button:active{transform:translateY(4px)}
+.ox button:disabled{opacity:.4}
+.fb{min-height:66px;margin:16px 0 8px;font-size:clamp(21px,2.8vw,27px);line-height:1.4;word-break:keep-all}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+
+footer span{white-space:nowrap}
+footer{background:var(--sky);padding:14px;text-align:center;font-size:17px;color:var(--navy);line-height:1.6;word-break:keep-all}
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:20px;padding:12px 26px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:99;white-space:nowrap}
+.toast.on{opacity:1}
+.conf{position:fixed;top:-20px;width:14px;height:14px;z-index:98;pointer-events:none;animation:fall linear forwards}
+.spk{position:fixed;z-index:97;pointer-events:none;font-size:28px;line-height:1;color:#ffc93c;text-shadow:0 0 6px #fff;animation:spk .9s ease-out forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@keyframes spk{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.3) rotate(120deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fl.on path,.stream{animation:none}}
+
+@media (max-width:760px){
+  header{padding:6px 10px}
+  .head-in{gap:6px}
+  .brand{font-size:13px}
+  .share.bbtn{font-size:15px;min-height:44px;padding:4px 12px;gap:4px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.15),0 3px 0 var(--navy-d)}
+  .share svg{width:16px;height:16px}
+  nav{margin-top:8px;padding:0 10px;gap:6px;grid-template-columns:repeat(2,1fr)}
+  .tab{min-height:46px;border-radius:14px}
+  main{padding:8px 10px 12px}
+  .card{padding:12px 8px;border-radius:20px}
+  .white-box{padding:6px}
+  .kcards{grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+  .kcards .kcard{grid-column:span 2}
+  .kcards .kcard:nth-child(n+4){grid-column:span 3}
+  .kcards.k4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kcards.k4 .kcard{grid-column:auto}
+  .kcard{min-height:58px}
+  .slot{min-height:70px}
+  .arr{font-size:16px}
+}
+</style>
+</head>
+<body>
+<header><div class="head-in">
+  <div class="titles"><div class="brand">어게인 실험과학 수학학원</div><h1>기후 위기는 왜 일어나고, 어떻게 막을 수 있을까?</h1></div>
+  <button class="bbtn share" id="share" aria-label="공유하기">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+    <span>공유하기</span>
+  </button>
+</div></header>
+
+<nav>
+  <button class="tab on" data-t="0">탄소 순환</button>
+  <button class="tab" data-t="1">카드 잇기</button>
+  <button class="tab" data-t="2">탄소 중립 욕조</button>
+  <button class="tab" data-t="3">OX 퀴즈</button>
+</nav>
+
+<main>
+<!-- ① 탄소 순환 -->
+<section class="panel on" id="p0">
+  <div class="card">
+    <h2>탄소는 어디를 돌아다닐까?</h2>
+    <p class="cnt">한 곳을 눌러 봐요 · 눌러 본 곳 <b id="seenN">0</b> / 5</p>
+    <div class="white-box"><svg id="cyc" viewBox="0 0 360 352" role="group" aria-label="탄소 순환 그림 : 공기 · 식물 · 동물 · 땅속 · 바다"></svg></div>
+    <p class="say" id="cSay">공기 · 식물 · 동물 · 땅속 · 바다 가운데<br>한 곳을 눌러 봐요.</p>
+    <div class="lines" id="cLines"></div>
+    <div class="row"><button class="bbtn white btn-all" id="cAll">화살표 모두 보기</button></div>
+    <p class="hanja" id="hanja" hidden><big>循</big>(돌 순) 탄소는 지구를 돌고 돌아요.</p>
+  </div>
+  <div class="note">
+    <p><b>탄소 순환</b> : 탄소가 공기 · 생물 · 땅 · 바다 사이를 옮겨 다니며 도는 것</p>
+    <p><b>화석 연료</b> : 아주 오래전 생물이 땅속에 묻혀 오랜 시간 변해 만들어진 석탄 · 석유 · 천연가스</p>
+  </div>
+</section>
+
+<!-- ② 카드 잇기 -->
+<section class="panel" id="p1">
+  <div class="card">
+    <h2>기후위기 해결사 카드 잇기</h2>
+    <p class="cnt">이어 본 현상 카드 <b id="kDone">0</b> / 5</p>
+    <div class="ghead">① 현상 카드 <small>— 하나를 골라요</small></div>
+    <div class="kcards" id="kPh"></div>
+    <div class="ghead">② 원인 카드 <small>— 원인은 '~ 때문에'로</small></div>
+    <div class="kcards k4" id="kCa"></div>
+    <div class="fbk" id="cFb"></div>
+    <div class="ghead">③ 방안 카드 <small>— 방안은 '그래서 ~하자'로</small></div>
+    <div class="kcards k4" id="kSo"></div>
+    <div class="fbk" id="sFb"></div>
+    <div class="ghead">나의 토론보드</div>
+    <div class="board">
+      <div class="slot ca" id="slC"><small>원인</small><b>?</b></div><div class="arr">→</div>
+      <div class="slot ph" id="slP"><small>현상</small><b>?</b></div><div class="arr">→</div>
+      <div class="slot so" id="slS"><small>방안</small><b>?</b></div>
+    </div>
+    <p class="say" id="kSay">먼저 현상 카드를 하나 골라요.</p>
+  </div>
+</section>
+
+<!-- ③ 탄소 중립 욕조 -->
+<section class="panel" id="p2">
+  <div class="card">
+    <h2>탄소 중립 욕조</h2>
+    <div class="stat" id="tStat"><span>▲ 차오르고 있어요</span></div>
+    <div class="white-box"><svg id="tub" viewBox="0 0 320 272" role="img" aria-label="욕조 물 = 공기 속 이산화 탄소. 수도꼭지는 내보내기, 배수구는 없애기"></svg></div>
+    <p class="say" id="tSay"></p>
+    <div class="rngs">
+      <label class="rng" style="--c:var(--warm-d)"><span class="nm">내보내기<small>수도꼭지</small></span><input type="range" id="rE" min="1" max="10" value="8" aria-label="내보내기 양"><b id="vE">8</b>
+        <span class="hint">화석 연료 태우기 · 숲 베기 · 가축</span></label>
+      <label class="rng" style="--c:var(--sol-d)"><span class="nm">없애기<small>배수구</small></span><input type="range" id="rR" min="0" max="10" value="4" aria-label="없애기 양"><b id="vR">4</b>
+        <span class="hint">바다와 숲 · 흙이 빨아들이기</span></label>
+    </div>
+  </div>
+  <div class="note">
+    <p><b>탄소 중립</b> : 내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만드는 것 — 우리나라 목표는 2050년</p>
+    <p>탄소 중립은 이산화 탄소를 하나도 내보내지 않는 것이 아니에요. 수도꼭지가 열려 있어도, 배수구로 같은 만큼 빠지면 탄소 중립이에요.</p>
+    <p>사람이 내보낸 이산화 탄소의 절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요. 처음 막대가 바로 이 모습이에요.</p>
+  </div>
+</section>
+
+<!-- ④ OX -->
+<section class="panel" id="p3">
+  <div class="quiz">
+    <div class="score"><span id="qn">1</span> / <span id="qt"></span> · 맞힌 수 <b id="sc">0</b></div>
+    <div class="q" id="q"></div>
+    <div class="ox" id="ox"><button class="o" data-a="O" aria-label="O">O</button><button class="x" data-a="X" aria-label="X">X</button></div>
+    <div class="fb" id="qfb"></div>
+    <div class="row"><button class="bbtn" id="qnext" hidden>다음 문제</button></div>
+  </div>
+</section>
+</main>
+
+<footer><span>어게인 실험과학 수학학원</span> · <span>교육문의 010.2976.5774</span></footer>
+<div class="toast" id="toast">주소가 복사됐어요</div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const NS='http://www.w3.org/2000/svg';
+
+/* ---------- 반짝이 ---------- */
+function confetti(){
+  const cols=['#3a9ae0','#ff8a3d','#24407e','#ffd23f','#2a9d5c'];
+  for(let i=0;i<70;i++){ const d=document.createElement('div'); d.className='conf';
+    d.style.left=Math.random()*100+'vw'; d.style.background=cols[i%5]; d.style.borderRadius=i%2?'50%':'3px';
+    d.style.animationDuration=1.4+Math.random()*1.6+'s'; d.style.animationDelay=Math.random()*.4+'s';
+    document.body.appendChild(d); setTimeout(()=>d.remove(),3600); }
+}
+function sparkle(el,n=14){
+  const r=el.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2;
+  for(let i=0;i<n;i++){ const s=document.createElement('span'), a=i/n*Math.PI*2, d=60+Math.random()*80;
+    s.className='spk'; s.textContent='✦'; s.style.left=x+'px'; s.style.top=y+'px';
+    s.style.setProperty('--dx',Math.cos(a)*d+'px'); s.style.setProperty('--dy',Math.sin(a)*d+'px');
+    s.style.color=['#ffc93c','#ff8a3d','#3a9ae0'][i%3]; document.body.appendChild(s); setTimeout(()=>s.remove(),1000); }
+}
+
+/* ---------- 탭 · 공유하기 ---------- */
+function showTab(t){ $$('.tab').forEach((b,j)=>b.classList.toggle('on',j===t)); $$('.panel').forEach((p,j)=>p.classList.toggle('on',j===t)); }
+$$('.tab').forEach(b=>b.onclick=()=>showTab(+b.dataset.t));
+function toast(){ const el=$('#toast'); el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove('on'),1800); }
+$('#share').onclick=()=>{
+  const url=location.href.split('#')[0];
+  const copy=navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject();
+  copy.catch(()=>{ const t=document.createElement('textarea'); t.value=url; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }).then(toast);
+  if(navigator.share) navigator.share({title:'기후 위기 해결사',text:'어게인 실험과학 수학학원 · 기후 위기는 왜 일어나고, 어떻게 막을 수 있을까?',url}).catch(()=>{});
+};
+
+/* ---------- ① 탄소 순환 ---------- */
+const NODES={
+  air:  {x:180,y:62, nm:'공기',emo:'☁️',fill:'#e8f4fd',st:'#9cc9ec'},
+  plant:{x:56, y:168,nm:'식물',emo:'🌳',fill:'#e3f6ec',st:'#8fd0ac'},
+  sea:  {x:304,y:168,nm:'바다',emo:'🌊',fill:'#d7ecfb',st:'#7fb8e6'},
+  ground:{x:104,y:278,nm:'땅속',sub:'(화석 연료)',emo:'🛢️',fill:'#f1e6d8',st:'#c9a27a'},
+  animal:{x:256,y:278,nm:'동물',emo:'🐄',fill:'#fff0e3',st:'#f3b98a'},
+};
+const KIND={ photo:['광합성','#1f8a57'], breath:['숨쉬기','#24407e'], bury:['묻힘','#8a5a2b'], burn:['태우기','#e0661c'], sea:['빨아들임','#2476b8'] };
+const FLOWS=[ // [이름, 출발, 도착, 종류, 휘기(+는 가는 쪽 왼편)]
+  ['f1','air','plant','photo',46], ['f2','plant','air','breath',46], ['f3','animal','air','breath',-12],
+  ['f4','ground','air','burn',12], ['f5','plant','ground','bury',-14], ['f6','animal','ground','bury',-26], ['f7','air','sea','sea',-30],
+];
+const LINE={
+  photo:'식물은 광합성으로 공기 속 이산화 탄소를 빨아들여요.',
+  seaIn:'바다는 공기 속 이산화 탄소를 빨아들여요.',
+  breathBoth:'동물과 식물은 숨 쉴 때 이산화 탄소를 내보내요.',
+  breathPlant:'식물도 숨 쉴 때 이산화 탄소를 내보내요.',
+  breathAnimal:'동물은 숨 쉴 때 이산화 탄소를 내보내요.',
+  bury:'아주 오래전 생물이 땅속에 묻혀 오랜 시간 변하면 화석 연료가 돼요.',
+  buryG:'화석 연료는 아주 오래전 생물이 땅속에 묻혀 오랜 시간 변해 만들어진 석탄 · 석유 · 천연가스예요.',
+  burn:'화석 연료를 태우면 수백만 년 넘게 땅속에 갇혀 있던 탄소가 이산화 탄소가 되어 공기로 나와요.',
+  sea:'바다는 공기 속 이산화 탄소를 빨아들여요. 사람이 내보낸 이산화 탄소의 절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요.',
+};
+const PLACE={ // 누르면 움직일 화살표 · 설명 줄
+  air:   {say:'공기 속 탄소는 <b>이산화 탄소</b>로 들어오고 나가요.', fl:['f1','f7','f2','f3','f4'], ln:[['photo','photo'],['sea','seaIn'],['breath','breathBoth'],['burn','burn']]},
+  plant: {say:'식물은 이산화 탄소를 <b>빨아들이기도, 내보내기도</b> 해요.', fl:['f1','f2','f5'], ln:[['photo','photo'],['breath','breathPlant'],['bury','bury']]},
+  animal:{say:'동물은 숨 쉴 때 이산화 탄소를 <b>내보내요</b>.', fl:['f3','f6'], ln:[['breath','breathAnimal'],['bury','bury']]},
+  ground:{say:'땅속 화석 연료에는 <b>오래 갇혀 있던 탄소</b>가 있어요.', fl:['f5','f6','f4'], ln:[['bury','buryG'],['burn','burn']]},
+  sea:   {say:'바다는 공기 속 이산화 탄소를 <b>빨아들여요</b>.', fl:['f7'], ln:[['sea','sea']]},
+};
+const R=34, mk=(t,a={},p)=>{ const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(p) p.appendChild(e); return e; };
+const cyc=$('#cyc');
+(function drawCycle(){
+  const defs=mk('defs',{},cyc);
+  const marker=(id,c)=>{ const m=mk('marker',{id,viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:3.6,markerHeight:3.6,orient:'auto'},defs); mk('path',{d:'M0 0L10 5L0 10z',fill:c},m); };
+  marker('m-off','#cfdbe6'); for(const k in KIND) marker('m-'+k,KIND[k][1]);
+  const toward=(p,q,d)=>{ const dx=q.x-p.x, dy=q.y-p.y, L=Math.hypot(dx,dy); return {x:+(p.x+dx/L*d).toFixed(1), y:+(p.y+dy/L*d).toFixed(1)}; };
+  for(const [id,a,b,kind,bend] of FLOWS){
+    const A=NODES[a], B=NODES[b], dx=B.x-A.x, dy=B.y-A.y, L=Math.hypot(dx,dy);
+    const c={x:(A.x+B.x)/2-dy/L*bend, y:(A.y+B.y)/2+dx/L*bend};
+    const s=toward(A,c,R+5), e=toward(B,c,R+9), d=`M${s.x} ${s.y}Q${c.x.toFixed(1)} ${c.y.toFixed(1)} ${e.x} ${e.y}`;
+    const g=mk('g',{class:'fl',id,style:'--c:'+KIND[kind][1]},cyc); g.dataset.kind=kind;
+    mk('path',{d,'marker-end':'url(#m-off)'},g);
+    const mx=.25*s.x+.5*c.x+.25*e.x, my=.25*s.y+.5*c.y+.25*e.y;
+    const t=mk('text',{x:mx.toFixed(1),y:(my+5).toFixed(1),'text-anchor':'middle'},g); t.textContent=KIND[kind][0];
+    const dot=mk('g',{class:'dot'},g); mk('circle',{r:9,fill:KIND[kind][1],stroke:'#fff','stroke-width':2},dot);
+    const dt=mk('text',{y:5,'text-anchor':'middle',style:'fill:#fff;stroke:none;font-size:13px'},dot); dt.textContent='C';
+    mk('animateMotion',{dur:'1.8s',repeatCount:'indefinite',path:d},dot);
+  }
+  for(const k in NODES){ const n=NODES[k];
+    const g=mk('g',{class:'node',tabindex:0,role:'button','aria-label':n.nm+(n.sub||'')},cyc); g.dataset.n=k;
+    mk('circle',{cx:n.x,cy:n.y,r:R,fill:n.fill,stroke:n.st},g);
+    const e=mk('text',{x:n.x,y:n.y+2,'text-anchor':'middle',class:'emo'},g); e.textContent=n.emo;
+    const t=mk('text',{x:n.x,y:n.y+26,'text-anchor':'middle',class:'nm'},g); t.textContent=n.nm;
+    if(n.sub){ const s=mk('text',{x:n.x,y:n.y+R+18,'text-anchor':'middle',class:'sub'},g); s.textContent=n.sub; }
+    const c=mk('text',{x:n.x+R-4,y:n.y-R+10,'text-anchor':'middle',class:'chk'},g); c.textContent='✓';
+    g.onclick=()=>pickPlace(k); g.onkeydown=ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); pickPlace(k); } };
+  }
+  // 바닥말 (점 = 탄소)
+  const cap=mk('text',{x:180,y:348,'text-anchor':'middle',style:'font-size:13px;fill:#8a96a3'},cyc); cap.textContent='움직이는 C = 탄소';
+})();
+function lightFlows(ids){
+  $$('#cyc .fl').forEach(g=>{ const on=ids.includes(g.id); g.classList.toggle('on',on);
+    g.querySelector('path').setAttribute('marker-end',on?`url(#m-${g.dataset.kind})`:'url(#m-off)'); });
+}
+const seen=new Set();
+function lineHTML(kind,key){ return `<div class="ln"><span class="chip" style="background:${KIND[kind][1]}">${KIND[kind][0]}</span>${LINE[key]}</div>`; }
+function pickPlace(k){
+  const P=PLACE[k];
+  $$('#cyc .node').forEach(g=>g.classList.toggle('on',g.dataset.n===k));
+  lightFlows(P.fl);
+  $('#cSay').className='say'; $('#cSay').innerHTML=P.say;
+  $('#cLines').innerHTML=P.ln.map(([kind,key])=>lineHTML(kind,key)).join('');
+  const fresh=!seen.has(k); seen.add(k); cyc.querySelector(`.node[data-n="${k}"]`).classList.add('seen'); $('#seenN').textContent=seen.size;
+  if(fresh&&seen.size===5){ $('#hanja').hidden=false; sparkle($('#hanja'),18); }
+}
+$('#cAll').onclick=()=>{
+  $$('#cyc .node').forEach(g=>g.classList.remove('on'));
+  lightFlows(FLOWS.map(f=>f[0]));
+  $('#cSay').className='say good'; $('#cSay').innerHTML='탄소 순환 : 탄소가 공기 · 생물 · 땅 · 바다 사이를 옮겨 다니며 도는 것';
+  $('#cLines').innerHTML=[['photo','photo'],['breath','breathBoth'],['bury','bury'],['burn','burn'],['sea','seaIn']].map(([a,b])=>lineHTML(a,b)).join('');
+};
+
+/* ---------- ② 카드 잇기 ---------- */
+const PH=['해수면 상승','물부족','식량위기','기후 난민','지구온난화'];
+const EFFECT=[ // '그래서' 뒤에 이어지는 말
+  '지구가 더워지고, 빙하가 녹아 해수면이 올라가요.',
+  '지구가 더워지고, 가뭄 · 폭염이 늘어 물이 모자라게 돼요.',
+  '지구가 더워지고, 가뭄 · 폭염 · 큰비로 밀 · 쌀 · 옥수수가 덜 자라면 식량위기가 와요.',
+  '지구가 더워지고, 해수면이 오르거나 가뭄 · 폭염 · 큰비로 밀 · 쌀 · 옥수수가 덜 자라면, 살던 곳을 떠나는 기후 난민이 생겨요.',
+  '지구가 더워져요. 이것이 지구 온난화예요.',
+];
+const CA=[ // [카드 이름, 이어지나, 까닭(앞부분) 또는 힌트]
+  ['화석원료',true,'화석 연료를 태우면 땅속에 갇혀 있던 탄소가 이산화 탄소가 되어 공기로 나와요.'],
+  ['유해물질',false,'유해물질로는 지구가 왜 더워졌는지 이어 말하기 어려워요. 지구를 데우는 온실 가스를 늘리는 원인 카드를 찾아봐요.'],
+  ['온실가스',true,'사람이 내보낸 온실 가스가 공기에 쌓여요.'],
+  ['열대우림 파괴',true,'열대 우림은 이산화 탄소를 많이 빨아들이는데, 나무를 베어 태우면 그 탄소가 다시 공기로 나와요.'],
+];
+const SO=[
+  ['신재생에너지',true,'신재생에너지로 전기를 만들면 화석 연료를 덜 태워서 온실 가스가 줄어요.'],
+  ['탄소중립',true,'내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만들면 원인인 온실 가스가 더 쌓이지 않아요.'],
+  ['생물다양성',false,'생물다양성은 기후와 다른 환경 주제예요. 원인인 온실 가스를 줄이는 방안 카드를 골라 봐요.'],
+  ['기후행동',true,'전등 끄기 · 걷기와 버스 타기 · 음식 남기지 않기처럼 우리가 하는 기후 행동으로 온실 가스를 줄여요.'],
+];
+let kp=null, kc=null, ks=null; const kdone=new Set();
+const cardHTML=(arr,cls)=>arr.map((c,i)=>`<button class="kcard ${cls}" data-i="${i}">${typeof c==='string'?c:c[0]}<span class="mk"></span></button>`).join('');
+$('#kPh').innerHTML=cardHTML(PH,'ph'); $('#kCa').innerHTML=cardHTML(CA,'ca off'); $('#kSo').innerHTML=cardHTML(SO,'so off');
+function slot(id,txt){ const s=$(id); s.querySelector('b').textContent=txt||'?'; s.classList.toggle('full',!!txt); }
+function shake(b){ b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); }
+function kRefresh(){
+  $$('#kPh .kcard').forEach((b,i)=>{ b.classList.toggle('on',i===kp); b.classList.toggle('done',kdone.has(i)); });
+  $$('#kCa .kcard').forEach((b,i)=>{ b.classList.toggle('off',kp===null); b.classList.toggle('on',i===kc); });
+  $$('#kSo .kcard').forEach((b,i)=>{ b.classList.toggle('off',kp===null); b.classList.toggle('on',i===ks); });
+  slot('#slP',kp===null?'':PH[kp]); slot('#slC',kc===null?'':CA[kc][0]); slot('#slS',ks===null?'':SO[ks][0]);
+  $('#kDone').textContent=kdone.size;
+}
+function fb(id,ok,html){ const f=$(id); f.className='fbk '+(ok?'ok':'no'); f.innerHTML=html; }
+function kCheck(){
+  if(kp===null||kc===null||ks===null) return;
+  const fresh=!kdone.has(kp); kdone.add(kp); kRefresh();
+  $('#kSay').className='say good';
+  $('#kSay').innerHTML=`이어졌어요! ${CA[kc][0]} → ${PH[kp]} → ${SO[ks][0]}`;
+  sparkle($('#slP'),16);
+  if(fresh&&kdone.size===PH.length){
+    $('#kSay').innerHTML+=`<br><b>원인 하나(온실 가스)가 해수면 상승 · 물부족 · 식량위기 같은 여러 현상을 함께 일으켜요.</b>`; confetti();
+  } else if(kdone.size<PH.length) $('#kSay').innerHTML+='<br><b>다른 현상 카드도 골라 봐요.</b>';
+}
+$$('#kPh .kcard').forEach(b=>b.onclick=()=>{
+  kp=+b.dataset.i; kc=null; ks=null; $('#cFb').innerHTML=''; $('#sFb').innerHTML=''; kRefresh();
+  $('#kSay').className='say'; $('#kSay').innerHTML=`<b>${PH[kp]}</b>! 이 현상의 원인 카드와 방안 카드를 하나씩 골라요.`;
+});
+$$('#kCa .kcard').forEach(b=>b.onclick=()=>{
+  if(kp===null){ shake(b); $('#kSay').className='say'; $('#kSay').textContent='먼저 현상 카드를 하나 골라요.'; return; }
+  const [name,ok,txt]=CA[+b.dataset.i];
+  if(ok){ kc=+b.dataset.i; fb('#cFb',true,`<b>✓ ${name} → ${PH[kp]}</b><br>${txt} 그래서 ${EFFECT[kp]}`); }
+  else { kc=null; shake(b); fb('#cFb',false,`<b>다시 생각해 봐요.</b> ${txt}`); }
+  kRefresh(); kCheck();
+});
+$$('#kSo .kcard').forEach(b=>b.onclick=()=>{
+  if(kp===null){ shake(b); $('#kSay').className='say'; $('#kSay').textContent='먼저 현상 카드를 하나 골라요.'; return; }
+  const [name,ok,txt]=SO[+b.dataset.i];
+  if(ok){ ks=+b.dataset.i; fb('#sFb',true,`<b>✓ ${PH[kp]} → ${name}</b><br>${txt}`); }
+  else { ks=null; shake(b); fb('#sFb',false,`<b>다시 생각해 봐요.</b> ${txt}`); }
+  kRefresh(); kCheck();
+});
+kRefresh();
+
+/* ---------- ③ 탄소 중립 욕조 ---------- */
+const tub=$('#tub');
+tub.innerHTML=`
+  <defs><clipPath id="tubIn"><path d="M40 80H280V196Q280 218 258 218H62Q40 218 40 196Z"/></clipPath></defs>
+  <path d="M18 34H96Q112 34 112 50V60" fill="none" stroke="#8a96a3" stroke-width="16" stroke-linecap="round"/>
+  <rect x="38" y="20" width="22" height="12" rx="4" fill="#ff8a3d"/>
+  <text x="58" y="16" text-anchor="middle" style="font-size:14px;fill:#e0661c">수도꼭지</text>
+  <line id="inS" class="stream" x1="112" y1="66" x2="112" y2="150" stroke="#8fb0cc" stroke-width="10" stroke-linecap="round"/>
+  <g clip-path="url(#tubIn)">
+    <rect id="water" x="40" y="150" width="240" height="70" fill="#8fb0cc"/>
+    <text id="wLab" x="160" y="190" text-anchor="middle" style="font-size:16px;fill:#fff">공기 속 이산화 탄소</text>
+  </g>
+  <path d="M36 86V196Q36 222 62 222H258Q284 222 284 196V86" fill="none" stroke="#24407e" stroke-width="8" stroke-linecap="round"/>
+  <rect x="216" y="218" width="28" height="9" rx="3" fill="#24407e"/>
+  <line id="outS" class="stream" x1="230" y1="228" x2="230" y2="272" stroke="#8fb0cc" stroke-width="6"/>
+  <text x="274" y="252" text-anchor="middle" style="font-size:15px;fill:#1c7543">배수구</text>`;
+let E=8, Rm=4, lvl=45, last=0, state='';
+const TOP=92, BOT=218;
+const MSG={
+  up:  ['▲ 차오르고 있어요','빨아들이는 양보다 더 많이 내보내서,<br>공기 속 이산화 탄소가 계속 늘어나요.'],
+  full:['▲ 넘치기 직전이에요!','내보내기를 줄이거나<br>없애기를 늘려 봐요.'],
+  down:['▼ 줄고 있어요','없애는 양이 내보내는 양보다 많아서,<br>공기 속 이산화 탄소가 줄어요.'],
+  zero:['탄소 중립!','내보낸 만큼 다시 없애서,<br>공기 속에 늘어나는 양이 <b>0</b>이에요.'],
+};
+function setState(s){
+  if(s===state) return; state=s;
+  const st=$('#tStat'); st.className='stat'+(s==='zero'?' zero':s==='down'?' down':'');
+  st.innerHTML=`<span>${MSG[s][0]}</span>`; $('#tSay').innerHTML=MSG[s][1];
+  $('#tSay').className='say'+(s==='zero'?' good':'');
+  if(s==='zero') sparkle(st.firstChild,16);
+}
+function tubFrame(t){
+  const dt=last?Math.min(.05,(t-last)/1000):0; last=t;
+  const d=E-Rm; lvl=Math.max(4,Math.min(96,lvl+d*1.3*dt));
+  const y=BOT-(BOT-TOP)*lvl/100;
+  $('#water').setAttribute('y',y.toFixed(1)); $('#water').setAttribute('height',(BOT-y+10).toFixed(1));
+  $('#wLab').setAttribute('y',Math.min(208,y+24).toFixed(1));
+  $('#inS').setAttribute('y2',y.toFixed(1));
+  setState(d===0?'zero':d>0?(lvl>=96?'full':'up'):'down');
+  requestAnimationFrame(tubFrame);
+}
+function setFlows(){
+  E=+$('#rE').value; Rm=+$('#rR').value; $('#vE').textContent=E; $('#vR').textContent=Rm;
+  $('#inS').setAttribute('stroke-width',3+E*1.6);
+  $('#outS').setAttribute('stroke-width',Rm?3+Rm*1.6:0);
+}
+$('#rE').oninput=setFlows; $('#rR').oninput=setFlows;
+setFlows(); requestAnimationFrame(tubFrame);
+
+/* ---------- ④ OX ---------- */
+const OX=[
+  ['화석 연료는 아주 오래전 생물이 땅속에 묻혀 만들어졌다.',true,'화석 연료는 아주 오래전 생물이 땅속에 묻혀 오랜 시간 변해 만들어진 석탄 · 석유 · 천연가스예요.'],
+  ['사람이 내보낸 이산화 탄소는 모두 바다와 숲이 빨아들인다.',false,'절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요.'],
+  ['소 같은 가축은 메테인이라는 온실 가스를 내보낸다.',true,'메테인은 소 같은 가축이 먹이를 소화할 때 나오는 온실 가스예요.'],
+  ['탄소 중립은 이산화 탄소를 하나도 내보내지 않는 것이다.',false,'탄소 중립은 내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만드는 것이에요.'],
+  ['온실 가스라는 원인 하나가 해수면 상승과 물부족을 함께 일으킬 수 있다.',true,'원인 하나(온실 가스)가 해수면 상승 · 물부족 · 식량위기 같은 여러 현상을 함께 일으켜요.'],
+];
+let qi=0, score=0;
+$('#qt').textContent=OX.length;
+function showQ(){
+  $('#ox').hidden=false; $('#qn').textContent=qi+1; $('#sc').textContent=score; $('#q').textContent=OX[qi][0];
+  $('#qfb').textContent=''; $('#qfb').className='fb'; $('#qnext').hidden=true; $$('#ox button').forEach(b=>b.disabled=false);
+}
+$$('#ox button').forEach(b=>b.onclick=()=>{
+  const [,yes,why]=OX[qi], ans=yes?'O':'X', ok=b.dataset.a===ans; $$('#ox button').forEach(x=>x.disabled=true);
+  if(ok){ score++; sparkle(b); }
+  $('#sc').textContent=score; $('#qfb').className='fb '+(ok?'good':'bad');
+  $('#qfb').textContent=(ok?'딩동댕! ':`아쉬워요. 정답은 ${ans}예요. `)+why;
+  $('#qnext').textContent=qi<OX.length-1?'다음 문제':'결과 보기'; $('#qnext').hidden=false;
+});
+$('#qnext').onclick=()=>{
+  if(qi===OX.length){ qi=0; score=0; showQ(); return; }
+  if(++qi<OX.length){ showQ(); return; }
+  $('#q').textContent=`${OX.length}문제 중 ${score}문제를 맞혔어요!`; $('#ox').hidden=true; $('#qfb').className='fb good';
+  $('#qfb').textContent=(score===OX.length?'완벽해요! ':score>=OX.length-2?'잘했어요! ':'괜찮아요. 앞의 탭을 다시 눌러 보고 또 도전해요. ')+'기후 위기는 원인인 온실 가스를 줄여야 막을 수 있어요.';
+  $('#qnext').textContent='다시 하기'; if(score===OX.length) confetti();
+};
+showQ();
+
+/* ---------- 시작 (주소 끝 #tab1~#tab4 로 처음 탭 고르기) ---------- */
+const hashTab=location.hash.match(/^#tab([1-4])$/);
+showTab(hashTab?hashTab[1]-1:0);
+</script>
+</body>
+</html>
