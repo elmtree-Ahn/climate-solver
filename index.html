@@ -90,8 +90,7 @@ main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:10px 16px 16px}
 .ghead{margin:14px 2px 8px;font-size:clamp(19px,2.3vw,23px);color:var(--navy);word-break:keep-all}
 .ghead:first-of-type{margin-top:4px}
 .ghead small{font-size:.8em;color:var(--sub)}
-.kcards{display:grid;gap:8px;grid-template-columns:repeat(5,minmax(0,1fr))}
-.kcards.k4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kcards{display:grid;gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
 .kcard{position:relative;min-height:62px;border-radius:16px;padding:8px 6px;font-size:clamp(18px,2.2vw,22px);line-height:1.2;word-break:keep-all;
   background:#fff;border:3px solid var(--k);color:var(--kd);box-shadow:0 5px 0 var(--kd)}
 .kcard:active{transform:translateY(3px)}
@@ -170,11 +169,7 @@ footer{background:var(--sky);padding:14px;text-align:center;font-size:17px;color
   main{padding:8px 10px 12px}
   .card{padding:12px 8px;border-radius:20px}
   .white-box{padding:6px}
-  .kcards{grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
-  .kcards .kcard{grid-column:span 2}
-  .kcards .kcard:nth-child(n+4){grid-column:span 3}
-  .kcards.k4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .kcards.k4 .kcard{grid-column:auto}
+  .kcards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
   .kcard{min-height:58px}
   .slot{min-height:70px}
   .arr{font-size:16px}
@@ -219,14 +214,14 @@ footer{background:var(--sky);padding:14px;text-align:center;font-size:17px;color
 <section class="panel" id="p1">
   <div class="card">
     <h2>기후위기 해결사 카드 잇기</h2>
-    <p class="cnt">이어 본 현상 카드 <b id="kDone">0</b> / 5</p>
+    <p class="cnt">이어 본 현상 카드 <b id="kDone">0</b> / 4</p>
     <div class="ghead">① 현상 카드 <small>— 하나를 골라요</small></div>
     <div class="kcards" id="kPh"></div>
     <div class="ghead">② 원인 카드 <small>— 원인은 '~ 때문에'로</small></div>
-    <div class="kcards k4" id="kCa"></div>
+    <div class="kcards" id="kCa"></div>
     <div class="fbk" id="cFb"></div>
     <div class="ghead">③ 방안 카드 <small>— 방안은 '그래서 ~하자'로</small></div>
-    <div class="kcards k4" id="kSo"></div>
+    <div class="kcards" id="kSo"></div>
     <div class="fbk" id="sFb"></div>
     <div class="ghead">나의 토론보드</div>
     <div class="board">
@@ -243,17 +238,17 @@ footer{background:var(--sky);padding:14px;text-align:center;font-size:17px;color
   <div class="card">
     <h2>탄소 중립 욕조</h2>
     <div class="stat" id="tStat"><span>▲ 차오르고 있어요</span></div>
-    <div class="white-box"><svg id="tub" viewBox="0 0 320 272" role="img" aria-label="욕조 물 = 공기 속 이산화 탄소. 수도꼭지는 내보내기, 배수구는 없애기"></svg></div>
+    <div class="white-box"><svg id="tub" viewBox="0 0 320 272" role="img" aria-label="욕조 물 = 공기 속 이산화 탄소. 수도꼭지는 내보내기, 배수구는 거둬들이기"></svg></div>
     <p class="say" id="tSay"></p>
     <div class="rngs">
       <label class="rng" style="--c:var(--warm-d)"><span class="nm">내보내기<small>수도꼭지</small></span><input type="range" id="rE" min="1" max="10" value="8" aria-label="내보내기 양"><b id="vE">8</b>
         <span class="hint">화석 연료 태우기 · 숲 베기 · 가축</span></label>
-      <label class="rng" style="--c:var(--sol-d)"><span class="nm">없애기<small>배수구</small></span><input type="range" id="rR" min="0" max="10" value="4" aria-label="없애기 양"><b id="vR">4</b>
-        <span class="hint">바다와 숲 · 흙이 빨아들이기</span></label>
+      <label class="rng" style="--c:var(--sol-d)"><span class="nm">거둬들이기<small>배수구</small></span><input type="range" id="rR" min="0" max="10" value="4" aria-label="거둬들이기 양"><b id="vR">4</b>
+        <span class="hint">숲과 기술로 거둬들이기 · 바다와 흙이 빨아들이기</span></label>
     </div>
   </div>
   <div class="note">
-    <p><b>탄소 중립</b> : 내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만드는 것 — 우리나라 목표는 2050년</p>
+    <p><b>탄소 중립</b> : 내보낸 온실 가스만큼 숲과 기술로 다시 거둬들여, 공기 속에 늘어나는 양을 0으로 만드는 것 — 우리나라 목표는 2050년</p>
     <p>탄소 중립은 이산화 탄소를 하나도 내보내지 않는 것이 아니에요. 수도꼭지가 열려 있어도, 배수구로 같은 만큼 빠지면 탄소 중립이에요.</p>
     <p>사람이 내보낸 이산화 탄소의 절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요. 처음 막대가 바로 이 모습이에요.</p>
   </div>
@@ -326,7 +321,7 @@ const LINE={
   breathAnimal:'동물은 숨 쉴 때 이산화 탄소를 내보내요.',
   bury:'아주 오래전 생물이 땅속에 묻혀 오랜 시간 변하면 화석 연료가 돼요.',
   buryG:'화석 연료는 아주 오래전 생물이 땅속에 묻혀 오랜 시간 변해 만들어진 석탄 · 석유 · 천연가스예요.',
-  burn:'화석 연료를 태우면 수백만 년 넘게 땅속에 갇혀 있던 탄소가 이산화 탄소가 되어 공기로 나와요.',
+  burn:'화석 연료를 태우면 수천만 년 넘게 땅속에 갇혀 있던 탄소가 이산화 탄소가 되어 공기로 나와요.',
   sea:'바다는 공기 속 이산화 탄소를 빨아들여요. 사람이 내보낸 이산화 탄소의 절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요.',
 };
 const PLACE={ // 누르면 움직일 화살표 · 설명 줄
@@ -390,13 +385,12 @@ $('#cAll').onclick=()=>{
 };
 
 /* ---------- ② 카드 잇기 ---------- */
-const PH=['해수면 상승','물부족','식량위기','기후 난민','지구온난화'];
+const PH=['해수면 상승','물부족','식량위기','기후 난민'];
 const EFFECT=[ // '그래서' 뒤에 이어지는 말
   '지구가 더워지고, 빙하가 녹아 해수면이 올라가요.',
-  '지구가 더워지고, 가뭄 · 폭염이 늘어 물이 모자라게 돼요.',
-  '지구가 더워지고, 가뭄 · 폭염 · 큰비로 밀 · 쌀 · 옥수수가 덜 자라면 식량위기가 와요.',
-  '지구가 더워지고, 해수면이 오르거나 가뭄 · 폭염 · 큰비로 밀 · 쌀 · 옥수수가 덜 자라면, 살던 곳을 떠나는 기후 난민이 생겨요.',
-  '지구가 더워져요. 이것이 지구 온난화예요.',
+  '지구가 더워지면 땅과 저수지의 물이 빨리 증발하고 가뭄이 길어져, 마실 물과 농사지을 물이 모자라는 물부족이 생겨요.',
+  '지구가 더워져 가뭄 · 폭염 · 큰비가 늘고, 밀 · 쌀 · 옥수수가 덜 자라면 식량위기가 와요.',
+  '지구가 더워져 해수면이 오르거나, 가뭄 · 폭염 · 큰비로 밀 · 쌀 · 옥수수가 덜 자라면 살던 곳을 떠나는 기후 난민이 생겨요.',
 ];
 const CA=[ // [카드 이름, 이어지나, 까닭(앞부분) 또는 힌트]
   ['화석원료',true,'화석 연료를 태우면 땅속에 갇혀 있던 탄소가 이산화 탄소가 되어 공기로 나와요.'],
@@ -405,8 +399,8 @@ const CA=[ // [카드 이름, 이어지나, 까닭(앞부분) 또는 힌트]
   ['열대우림 파괴',true,'열대 우림은 이산화 탄소를 많이 빨아들이는데, 나무를 베어 태우면 그 탄소가 다시 공기로 나와요.'],
 ];
 const SO=[
-  ['신재생에너지',true,'신재생에너지로 전기를 만들면 화석 연료를 덜 태워서 온실 가스가 줄어요.'],
-  ['탄소중립',true,'내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만들면 원인인 온실 가스가 더 쌓이지 않아요.'],
+  ['신재생에너지',true,'햇빛 · 바람 · 물 같은 재생 에너지로 전기를 만들면 화석 연료를 덜 태워서 온실 가스가 줄어요.'],
+  ['탄소중립',true,'내보낸 온실 가스만큼 숲과 기술로 다시 거둬들여, 공기 속에 늘어나는 양을 0으로 만들면 원인인 온실 가스가 더 쌓이지 않아요.'],
   ['생물다양성',false,'생물다양성은 기후와 다른 환경 주제예요. 원인인 온실 가스를 줄이는 방안 카드를 골라 봐요.'],
   ['기후행동',true,'전등 끄기 · 걷기와 버스 타기 · 음식 남기지 않기처럼 우리가 하는 기후 행동으로 온실 가스를 줄여요.'],
 ];
@@ -473,9 +467,9 @@ let E=8, Rm=4, lvl=45, last=0, state='';
 const TOP=92, BOT=218;
 const MSG={
   up:  ['▲ 차오르고 있어요','빨아들이는 양보다 더 많이 내보내서,<br>공기 속 이산화 탄소가 계속 늘어나요.'],
-  full:['▲ 넘치기 직전이에요!','내보내기를 줄이거나<br>없애기를 늘려 봐요.'],
-  down:['▼ 줄고 있어요','없애는 양이 내보내는 양보다 많아서,<br>공기 속 이산화 탄소가 줄어요.'],
-  zero:['탄소 중립!','내보낸 만큼 다시 없애서,<br>공기 속에 늘어나는 양이 <b>0</b>이에요.'],
+  full:['▲ 넘치기 직전이에요!','내보내기를 줄이거나<br>거둬들이기를 늘려 봐요.'],
+  down:['▼ 줄고 있어요','거둬들이는 양이 내보내는 양보다 많아서,<br>공기 속 이산화 탄소가 줄어요.'],
+  zero:['탄소 중립!','내보낸 만큼 다시 거둬들여서,<br>공기 속에 늘어나는 양이 <b>0</b>이에요.'],
 };
 function setState(s){
   if(s===state) return; state=s;
@@ -507,7 +501,7 @@ const OX=[
   ['화석 연료는 아주 오래전 생물이 땅속에 묻혀 만들어졌다.',true,'화석 연료는 아주 오래전 생물이 땅속에 묻혀 오랜 시간 변해 만들어진 석탄 · 석유 · 천연가스예요.'],
   ['사람이 내보낸 이산화 탄소는 모두 바다와 숲이 빨아들인다.',false,'절반쯤은 바다와 숲 · 흙이 빨아들이고, 나머지 절반쯤은 공기에 쌓여요.'],
   ['소 같은 가축은 메테인이라는 온실 가스를 내보낸다.',true,'메테인은 소 같은 가축이 먹이를 소화할 때 나오는 온실 가스예요.'],
-  ['탄소 중립은 이산화 탄소를 하나도 내보내지 않는 것이다.',false,'탄소 중립은 내보낸 온실 가스만큼 다시 없애, 공기 속에 늘어나는 양을 0으로 만드는 것이에요.'],
+  ['탄소 중립은 이산화 탄소를 하나도 내보내지 않는 것이다.',false,'내보낸 만큼 다시 거둬들여 0으로! 탄소 중립은 내보낸 온실 가스만큼 숲과 기술로 다시 거둬들여, 공기 속에 늘어나는 양을 0으로 만드는 것이에요.'],
   ['온실 가스라는 원인 하나가 해수면 상승과 물부족을 함께 일으킬 수 있다.',true,'원인 하나(온실 가스)가 해수면 상승 · 물부족 · 식량위기 같은 여러 현상을 함께 일으켜요.'],
 ];
 let qi=0, score=0;
